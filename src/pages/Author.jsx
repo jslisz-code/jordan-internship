@@ -15,6 +15,7 @@ const Author = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     setLoading(true);
+    setIsFollowing(false);
 
     axios
       .get(
