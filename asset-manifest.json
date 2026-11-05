@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/jordan-internship/static/css/main.29c8b0c2.css",
-    "main.js": "/jordan-internship/static/js/main.339fc35c.js",
+    "main.js": "/jordan-internship/static/js/main.ff687caa.js",
     "static/js/787.0979ab29.chunk.js": "/jordan-internship/static/js/787.0979ab29.chunk.js",
     "static/media/icofont.woff": "/jordan-internship/static/media/icofont.dad3accba068281878f1.woff",
     "static/media/icofont.woff2": "/jordan-internship/static/media/icofont.9c33516aab48c61e3081.woff2",
@@ -22,14 +22,15 @@
     "static/media/et-line.eot": "/jordan-internship/static/media/et-line.3f5eecf9f3326c4d6d81.eot",
     "static/media/et-line.ttf": "/jordan-internship/static/media/et-line.cc7129c849c81d254698.ttf",
     "static/media/bg-shape-1.jpg": "/jordan-internship/static/media/bg-shape-1.ba54a8e086d0e99d912d.jpg",
+    "static/media/js-logo.svg": "/jordan-internship/static/media/js-logo.4bc66e660fd2bf210009061b46bdba47.svg",
     "index.html": "/jordan-internship/index.html",
     "static/media/ethereum.svg": "/jordan-internship/static/media/ethereum.df265e367364f285053a1285ad8d418d.svg",
     "main.29c8b0c2.css.map": "/jordan-internship/static/css/main.29c8b0c2.css.map",
-    "main.339fc35c.js.map": "/jordan-internship/static/js/main.339fc35c.js.map",
+    "main.ff687caa.js.map": "/jordan-internship/static/js/main.ff687caa.js.map",
     "787.0979ab29.chunk.js.map": "/jordan-internship/static/js/787.0979ab29.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.29c8b0c2.css",
-    "static/js/main.339fc35c.js"
+    "static/js/main.ff687caa.js"
   ]
 }
