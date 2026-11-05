@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import JSLogo from "../images/js-logo.svg";
 
 const Footer = () => {
   return (
@@ -165,7 +166,7 @@ const Footer = () => {
           <div className="row">
             <div className="col-md-12 text-center">
               <img
-                src={`${process.env.PUBLIC_URL}/images/js-logo.svg`}
+                src={JSLogo}
                 alt="Jordan Slisz signature"
                 style={{
                   width: "33px",
