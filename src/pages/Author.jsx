@@ -10,7 +10,7 @@ const Author = () => {
 
   const [author, setAuthor] = useState(null);
   const [loading, setLoading] = useState(true);
-
+  const [isFollowing, setIsFollowing] = useState(false);
   useEffect(() => {
     window.scrollTo(0, 0);
     setLoading(true);
@@ -29,19 +29,60 @@ const Author = () => {
         setLoading(false);
       });
   }, [id]);
+  const copyWalletAddress = () => {
+    navigator.clipboard.writeText(author.address);
+  };
+  const handleFollowToggle = () => {
+    setIsFollowing((previous) => !previous);
 
+    setAuthor((previousAuthor) => ({
+      ...previousAuthor,
+      followers: isFollowing
+        ? previousAuthor.followers - 1
+        : previousAuthor.followers + 1,
+    }));
+  };
   if (loading) {
     return (
       <div className="container mt90">
         <Skeleton width="100%" height="200px" borderRadius="12px" />
 
-        <br />
+        <div style={{ marginTop: "30px" }}>
+          <Skeleton width="120px" height="120px" borderRadius="50%" />
 
-        <Skeleton width="250px" height="50px" borderRadius="8px" />
+          <br />
+          <br />
+
+          <Skeleton width="180px" height="28px" borderRadius="6px" />
+
+          <br />
+
+          <Skeleton width="130px" height="18px" borderRadius="6px" />
+
+          <br />
+
+          <Skeleton width="300px" height="18px" borderRadius="6px" />
+        </div>
+        <div className="row" style={{ marginTop: "40px" }}>
+          {new Array(8).fill(0).map((_, index) => (
+            <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={index}>
+              <div className="nft__item">
+                <Skeleton width="100%" height="250px" borderRadius="12px" />
+
+                <br />
+
+                <Skeleton width="70%" height="22px" borderRadius="6px" />
+
+                <br />
+
+                <Skeleton width="40%" height="18px" borderRadius="6px" />
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
-
   if (!author) {
     return <div className="container mt90">Author not found.</div>;
   }
@@ -83,7 +124,11 @@ const Author = () => {
                             {author.address}
                           </span>
 
-                          <button id="btn_copy" title="Copy Text">
+                          <button
+                            id="btn_copy"
+                            title="Copy Text"
+                            onClick={copyWalletAddress}
+                          >
                             Copy
                           </button>
                         </h4>
@@ -97,9 +142,9 @@ const Author = () => {
                         {author.followers} followers
                       </div>
 
-                      <Link to="#" className="btn-main">
-                        Follow
-                      </Link>
+                      <button className="btn-main" onClick={handleFollowToggle}>
+                        {isFollowing ? "Unfollow" : "Follow"}
+                      </button>
                     </div>
                   </div>
                 </div>
