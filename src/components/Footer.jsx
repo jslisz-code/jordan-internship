@@ -44,6 +44,7 @@ const Footer = () => {
               </ul>
             </div>
           </div>
+
           <div className="col-md-3 col-sm-6 col-xs-1">
             <div className="widget">
               <h5>Resources</h5>
@@ -81,6 +82,7 @@ const Footer = () => {
               </ul>
             </div>
           </div>
+
           <div className="col-md-3 col-sm-6 col-xs-1">
             <div className="widget">
               <h5>Community</h5>
@@ -118,12 +120,15 @@ const Footer = () => {
               </ul>
             </div>
           </div>
+
           <div className="col-md-3 col-sm-6 col-xs-1">
             <div className="widget">
               <h5>Newsletter</h5>
+
               <p>
                 Signup for our newsletter to get the latest news in your inbox.
               </p>
+
               <form
                 action="blank.php"
                 className="row form-dark"
@@ -139,29 +144,45 @@ const Footer = () => {
                     placeholder="enter your email"
                     type="text"
                   />
+
                   <Link to="#" className="no-cursor" id="btn-subscribe">
                     <i className="arrow_right bg-color-secondary"></i>
                   </Link>
+
                   <div className="clearfix"></div>
                 </div>
               </form>
+
               <div className="spacer-10"></div>
+
               <small>Your email is safe with us. We don't spam.</small>
             </div>
           </div>
         </div>
       </div>
+
       <div className="subfooter">
         <div className="container">
           <div className="row">
-            <div className="col-md-12">
-              <div className="de-flex footer__wrapper">
-                <div className="de-flex-col">
-                  <Link className="footer__link" to="/">
-                    <img alt="" className="f-logo" src={Logo} />
-                    <span className="copy">&copy; Copyright 2022</span>
-                  </Link>
-                </div>
+            <div className="col-md-12 text-center">
+              <img
+                src="/images/js-logo.svg"
+                alt="Jordan Slisz signature"
+                style={{
+                  width: "33px",
+                  height: "auto",
+                  filter: "brightness(0)",
+                  marginBottom: "10px",
+                }}
+              />
+
+              <div
+                style={{
+                  fontSize: "12px",
+                  letterSpacing: "0.04em",
+                }}
+              >
+                © Copyright 2026 Jordan Slisz ~ All rights reserved.
               </div>
             </div>
           </div>
