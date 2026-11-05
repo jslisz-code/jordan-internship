@@ -2,27 +2,34 @@ import Skeleton from "../components/UI/Skeleton";
 import React, { useEffect, useState } from "react";
 import EthImage from "../images/ethereum.svg";
 import { Link, useParams } from "react-router-dom";
+import axios from "axios";
 
 const ItemDetails = () => {
   const { id } = useParams();
   const [item, setItem] = useState(null);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {
-    fetch(
-      `https://us-central1-nft-cloud-functions.cloudfunctions.net/itemDetails?nftId=${id}`,
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setItem(data);
+    setLoading(true);
+    axios
+      .get(
+        `https://us-central1-nft-cloud-functions.cloudfunctions.net/itemDetails?nftId=${id}`,
+      )
+      .then((response) => {
+        setItem(response.data);
       })
       .catch((error) => {
         console.error("Error fetching item details:", error);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   }, [id]);
-  if (!item) {
+
+  if (loading) {
     return (
       <div className="container mt90">
         <div className="row">
@@ -42,6 +49,9 @@ const ItemDetails = () => {
         </div>
       </div>
     );
+  }
+  if (!item) {
+    return <div className="container mt90">Item not found.</div>;
   }
   return (
     <div id="wrapper">
