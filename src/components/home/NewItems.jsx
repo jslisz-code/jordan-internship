@@ -12,10 +12,12 @@ const NewItems = () => {
 
   const [sliderRef, instanceRef] = useKeenSlider({
     loop: true,
+
     slides: {
       perView: 4,
       spacing: 20,
     },
+
     breakpoints: {
       "(max-width: 1000px)": {
         slides: {
@@ -23,12 +25,14 @@ const NewItems = () => {
           spacing: 15,
         },
       },
+
       "(max-width: 768px)": {
         slides: {
           perView: 2,
           spacing: 15,
         },
       },
+
       "(max-width: 500px)": {
         slides: {
           perView: 1,
@@ -43,15 +47,15 @@ const NewItems = () => {
       .get(
         "https://us-central1-nft-cloud-functions.cloudfunctions.net/newItems",
       )
-     .then((response) => {
-  setItems(response.data);
-})
-.catch((error) => {
-  console.error("Error fetching new items:", error);
-})
-.finally(() => {
-  setLoading(false);
-});
+      .then((response) => {
+        setItems(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching new items:", error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, []);
 
   useEffect(() => {
@@ -86,7 +90,11 @@ const NewItems = () => {
     <section id="section-items" className="no-bottom">
       <div className="container">
         <div className="row">
-          <div className="col-lg-12">
+          <div
+            className="col-lg-12"
+            data-aos="flip-down"
+            data-aos-duration="900"
+          >
             <div className="text-center">
               <h2>New Items</h2>
               <div className="small-border bg-color-2"></div>
@@ -115,11 +123,22 @@ const NewItems = () => {
               ))}
             </>
           ) : (
-            <div className="hot-collections-slider new-items-slider">
+            <div
+              className="hot-collections-slider new-items-slider"
+              data-aos="fade-down"
+              data-aos-duration="1000"
+            >
               <div ref={sliderRef} className="keen-slider">
-                {items.map((item) => (
+                {items.map((item, index) => (
                   <div className="keen-slider__slide" key={item.id}>
-                    <div className="nft__item">
+                    <div
+                      className="nft__item"
+                      data-aos={
+                        index % 2 === 0 ? "fade-down-left" : "fade-down-right"
+                      }
+                      data-aos-duration="900"
+                      data-aos-delay={(index % 4) * 100}
+                    >
                       <div className="author_list_pp">
                         <Link
                           to={`/author/${item.authorId}`}
@@ -132,6 +151,7 @@ const NewItems = () => {
                             src={item.authorImage}
                             alt="Author"
                           />
+
                           <i className="fa fa-check"></i>
                         </Link>
                       </div>

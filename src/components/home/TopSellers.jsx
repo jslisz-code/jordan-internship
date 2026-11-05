@@ -22,16 +22,22 @@ const TopSellers = () => {
         setLoading(false);
       });
   }, []);
+
   return (
     <section id="section-popular" className="pb-5">
       <div className="container">
         <div className="row">
-          <div className="col-lg-12">
+          <div
+            className="col-lg-12"
+            data-aos="zoom-out-down"
+            data-aos-duration="900"
+          >
             <div className="text-center">
               <h2>Top Sellers</h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
+
           <div className="col-md-12">
             <ol className="author_list">
               {loading
@@ -62,8 +68,13 @@ const TopSellers = () => {
                       </div>
                     </li>
                   ))
-                : sellers.map((seller) => (
-                    <li key={seller.id}>
+                : sellers.map((seller, index) => (
+                    <li
+                      key={seller.id}
+                      data-aos="zoom-out-up"
+                      data-aos-duration="800"
+                      data-aos-delay={(index % 4) * 100}
+                    >
                       <div className="author_list_pp">
                         <Link to={`/author/${seller.authorId}`}>
                           <img

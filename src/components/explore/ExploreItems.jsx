@@ -47,9 +47,7 @@ const ExploreItems = () => {
     }
 
     const hours = Math.floor(difference / (1000 * 60 * 60));
-
     const minutes = Math.floor((difference / (1000 * 60)) % 60);
-
     const seconds = Math.floor((difference / 1000) % 60);
 
     return `${hours}h ${minutes}m ${seconds}s`;
@@ -63,18 +61,18 @@ const ExploreItems = () => {
 
   return (
     <>
-      <div>
+      <div
+        data-aos="zoom-in-right"
+        data-aos-duration="800"
+      >
         <select
           id="filter-items"
           value={filter}
           onChange={(event) => setFilter(event.target.value)}
         >
           <option value="">Default</option>
-
           <option value="price_low_to_high">Price, Low to High</option>
-
           <option value="price_high_to_low">Price, High to Low</option>
-
           <option value="likes_high_to_low">Most liked</option>
         </select>
       </div>
@@ -87,19 +85,31 @@ const ExploreItems = () => {
               style={{ display: "block" }}
             >
               <div className="nft__item">
-                <Skeleton width="100%" height="250px" borderRadius="12px" />
+                <Skeleton
+                  width="100%"
+                  height="250px"
+                  borderRadius="12px"
+                />
 
                 <br />
 
-                <Skeleton width="70%" height="22px" borderRadius="6px" />
+                <Skeleton
+                  width="70%"
+                  height="22px"
+                  borderRadius="6px"
+                />
 
                 <br />
 
-                <Skeleton width="40%" height="18px" borderRadius="6px" />
+                <Skeleton
+                  width="40%"
+                  height="18px"
+                  borderRadius="6px"
+                />
               </div>
             </div>
           ))
-        : items.slice(0, visibleCount).map((item) => (
+        : items.slice(0, visibleCount).map((item, index) => (
             <div
               key={item.id}
               className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12"
@@ -107,6 +117,9 @@ const ExploreItems = () => {
                 display: "block",
                 backgroundSize: "cover",
               }}
+              data-aos="zoom-in-right"
+              data-aos-duration="850"
+              data-aos-delay={(index % 4) * 100}
             >
               <div className="nft__item">
                 <div className="author_list_pp">
@@ -115,7 +128,11 @@ const ExploreItems = () => {
                     data-bs-toggle="tooltip"
                     data-bs-placement="top"
                   >
-                    <img className="lazy" src={item.authorImage} alt="Author" />
+                    <img
+                      className="lazy"
+                      src={item.authorImage}
+                      alt="Author"
+                    />
 
                     <i className="fa fa-check"></i>
                   </Link>
@@ -162,11 +179,12 @@ const ExploreItems = () => {
                     <h4>{item.title}</h4>
                   </Link>
 
-                  <div className="nft__item_price">{item.price} ETH</div>
+                  <div className="nft__item_price">
+                    {item.price} ETH
+                  </div>
 
                   <div className="nft__item_like">
                     <i className="fa fa-heart"></i>
-
                     <span>{item.likes}</span>
                   </div>
                 </div>
@@ -175,7 +193,11 @@ const ExploreItems = () => {
           ))}
 
       {!loading && visibleCount < items.length && (
-        <div className="col-md-12 text-center">
+        <div
+          className="col-md-12 text-center"
+          data-aos="zoom-in-right"
+          data-aos-duration="800"
+        >
           <button
             id="loadmore"
             className="btn-main lead"
