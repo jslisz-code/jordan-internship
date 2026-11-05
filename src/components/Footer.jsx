@@ -165,7 +165,7 @@ const Footer = () => {
           <div className="row">
             <div className="col-md-12 text-center">
               <img
-                src="/images/js-logo.svg"
+                src={`${process.env.PUBLIC_URL}/images/js-logo.svg`}
                 alt="Jordan Slisz signature"
                 style={{
                   width: "33px",
