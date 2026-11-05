@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import AuthorBanner from "../images/author_banner.jpg";
 import AuthorItems from "../components/author/AuthorItems";
 import Skeleton from "../components/UI/Skeleton";
@@ -11,6 +11,7 @@ const Author = () => {
   const [author, setAuthor] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isFollowing, setIsFollowing] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
     setLoading(true);
@@ -29,9 +30,11 @@ const Author = () => {
         setLoading(false);
       });
   }, [id]);
+
   const copyWalletAddress = () => {
     navigator.clipboard.writeText(author.address);
   };
+
   const handleFollowToggle = () => {
     setIsFollowing((previous) => !previous);
 
@@ -42,6 +45,7 @@ const Author = () => {
         : previousAuthor.followers + 1,
     }));
   };
+
   if (loading) {
     return (
       <div className="container mt90">
@@ -63,6 +67,7 @@ const Author = () => {
 
           <Skeleton width="300px" height="18px" borderRadius="6px" />
         </div>
+
         <div className="row" style={{ marginTop: "40px" }}>
           {new Array(8).fill(0).map((_, index) => (
             <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={index}>
@@ -83,6 +88,7 @@ const Author = () => {
       </div>
     );
   }
+
   if (!author) {
     return <div className="container mt90">Author not found.</div>;
   }
@@ -99,12 +105,18 @@ const Author = () => {
           style={{
             background: `url(${AuthorBanner}) top`,
           }}
+          data-aos="zoom-out"
+          data-aos-duration="1000"
         ></section>
 
         <section aria-label="section">
           <div className="container">
             <div className="row">
-              <div className="col-md-12">
+              <div
+                className="col-md-12"
+                data-aos="flip-down"
+                data-aos-duration="900"
+              >
                 <div className="d_profile de-flex">
                   <div className="de-flex-col">
                     <div className="profile_avatar">
@@ -150,7 +162,11 @@ const Author = () => {
                 </div>
               </div>
 
-              <div className="col-md-12">
+              <div
+                className="col-md-12"
+                data-aos="zoom-out-up"
+                data-aos-duration="1000"
+              >
                 <div className="de_tab tab_simple">
                   <AuthorItems
                     items={author.nftCollection}

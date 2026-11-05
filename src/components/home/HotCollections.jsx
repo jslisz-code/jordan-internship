@@ -62,17 +62,30 @@ const HotCollections = () => {
     <section id="section-collections" className="no-bottom">
       <div className="container">
         <div className="row">
-          <div className="col-lg-12">
+          <div
+            className="col-lg-12"
+            data-aos="fade-down"
+            data-aos-duration="800"
+          >
             <div className="text-center">
               <h2>Hot Collections</h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
 
-          <div className="hot-collections-slider">
+          <div
+            className="hot-collections-slider"
+            data-aos="zoom-in-up"
+            data-aos-duration="1000"
+          >
             <div ref={sliderRef} className="keen-slider">
-              {collections.map((collection) => (
-                <div className="keen-slider__slide" key={collection.id}>
+              {collections.map((collection, index) => (
+                <div
+                  className="keen-slider__slide"
+                  key={collection.id}
+                  data-aos={index % 2 === 0 ? "flip-left" : "flip-right"}
+                  data-aos-duration="900"
+                >
                   <div className="nft_coll">
                     <div className="nft_wrap">
                       <Link to={`/item-details/${collection.nftId}`}>

@@ -5,7 +5,6 @@ import ExploreItems from "../components/explore/ExploreItems";
 const Explore = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
-    //Does this work?
   }, []);
 
   return (
@@ -21,16 +20,25 @@ const Explore = () => {
           <div className="center-y relative text-center">
             <div className="container">
               <div className="row">
-                <div className="col-md-12 text-center">
+                <div
+                  className="col-md-12 text-center"
+                  data-aos="zoom-in-down"
+                  data-aos-duration="1000"
+                >
                   <h1>Explore</h1>
                 </div>
+
                 <div className="clearfix"></div>
               </div>
             </div>
           </div>
         </section>
 
-        <section aria-label="section">
+        <section
+          aria-label="section"
+          data-aos="fade-up-left"
+          data-aos-duration="1000"
+        >
           <div className="container">
             <div className="row">
               <ExploreItems />
